@@ -73,7 +73,7 @@ class UserLoginEmailView(APIView):
 
             return Response({
                 "message": 'کد ارسال شد',
-                "user_id": user.id,
+                "user_email": user.email,
                 "code": code
             })
 
@@ -91,10 +91,10 @@ class VerifyUserEmailOTPView(APIView):
         if not serializer.is_valid():
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-        user_id = int(serializer.validated_data['user_id'])
+        email = serializer.validated_data['email']
         otp_code = int(serializer.validated_data['code'])
 
-        otp = UserOTPModel.objects.using("default").select_related("user").filter(user_id=user_id,
+        otp = UserOTPModel.objects.using("default").select_related("user").filter(user__email=email,
                                                                                   otp_code=otp_code).first()
 
         if not otp:

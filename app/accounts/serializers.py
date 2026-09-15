@@ -29,7 +29,7 @@ class LoginEmailSerializer(serializers.Serializer):
 
 
 class VerifyOTPSerializer(serializers.Serializer):
-    user_id = serializers.IntegerField()
+    email = serializers.EmailField()
     code = serializers.IntegerField()
 
 
