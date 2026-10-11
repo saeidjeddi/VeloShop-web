@@ -12,6 +12,10 @@ DJANGO_MIDDLEWARE = [
 
 
 LOCAL_MIDDLEWARE = [
+    
+    'utils.erorr_status.JsonResponse404Middleware',
+    'utils.erorr_status.JsonResponse403Middleware',
+    
 
 ]
 
