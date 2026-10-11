@@ -55,15 +55,25 @@ services:
 
     ports:
       - "80:80"
+      - "443:443"
 
     depends_on:
       app:
         condition: service_started
 
     volumes:
-      - ./volumes/media:/volumes/media
-      - ./volumes/assets:/volumes/assets
+      - ./volumes/media:/volumes/media:ro
+      - ./volumes/assets:/volumes/assets:ro
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+      - ./nginx/certbot:/var/www/certbot:ro
+      - ./nginx/certbot:/var/www/certbot
 
+  certbot:
+    image: certbot/certbot:latest
+    container_name: certbot
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt
+      - ./nginx/certbot:/var/www/certbot
 
   # ============================================================
   # REDIS

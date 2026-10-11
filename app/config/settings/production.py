@@ -57,39 +57,39 @@ AWS_S3_ENDPOINT_URL = os.getenv("AWS_S3_ENDPOINT_URL")
 AWS_S3_REGION_NAME = os.getenv("AWS_S3_REGION_NAME")
 
 
-STORAGES = {
-    "default": {
-        "BACKEND": "storages.backends.s3.S3Storage",
-        "OPTIONS": {
-            "access_key": AWS_ACCESS_KEY_ID,
-            "secret_key": AWS_SECRET_ACCESS_KEY,
-            "bucket_name": AWS_STORAGE_BUCKET_NAME,
-            "endpoint_url": AWS_S3_ENDPOINT_URL,
-            "region_name": AWS_S3_REGION_NAME,
+# STORAGES = {
+#     "default": {
+#         "BACKEND": "storages.backends.s3.S3Storage",
+#         "OPTIONS": {
+#             "access_key": AWS_ACCESS_KEY_ID,
+#             "secret_key": AWS_SECRET_ACCESS_KEY,
+#             "bucket_name": AWS_STORAGE_BUCKET_NAME,
+#             "endpoint_url": AWS_S3_ENDPOINT_URL,
+#             "region_name": AWS_S3_REGION_NAME,
 
-            "location": "assets/media",
-            "querystring_auth": False,
-            "file_overwrite": False,
-            "default_acl": "public-read",
-        },
-    },
+#             "location": "assets/media",
+#             "querystring_auth": False,
+#             "file_overwrite": False,
+#             "default_acl": "public-read",
+#         },
+#     },
 
-    "staticfiles": {
-        "BACKEND": "storages.backends.s3.S3Storage",
-        "OPTIONS": {
-            "access_key": AWS_ACCESS_KEY_ID,
-            "secret_key": AWS_SECRET_ACCESS_KEY,
-            "bucket_name": AWS_STORAGE_BUCKET_NAME,
-            "endpoint_url": AWS_S3_ENDPOINT_URL,
-            "region_name": AWS_S3_REGION_NAME,
+#     "staticfiles": {
+#         "BACKEND": "storages.backends.s3.S3Storage",
+#         "OPTIONS": {
+#             "access_key": AWS_ACCESS_KEY_ID,
+#             "secret_key": AWS_SECRET_ACCESS_KEY,
+#             "bucket_name": AWS_STORAGE_BUCKET_NAME,
+#             "endpoint_url": AWS_S3_ENDPOINT_URL,
+#             "region_name": AWS_S3_REGION_NAME,
 
-            "location": "assets/static",
-            "querystring_auth": False,
-            "file_overwrite": False,
-            "default_acl": "public-read",
-        },
-    },
-}
+#             "location": "assets/static",
+#             "querystring_auth": False,
+#             "file_overwrite": False,
+#             "default_acl": "public-read",
+#         },
+#     },
+# }
 
 ZARINPAL_MERCHANT_ID = os.getenv("ZARINPAL_MERCHANT_ID")
 ZARINPAL_SANDBOX = os.getenv("ZARINPAL_SANDBOX", "True").lower() == "true"

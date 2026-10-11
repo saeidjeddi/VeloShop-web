@@ -14,3 +14,9 @@ location /media/ {
     alias /volumes/media/;
 }
 
+location ^~ /.well-known/acme-challenge/ {
+    root /var/www/certbot;
+    default_type text/plain;
+    try_files $uri =404;
+}
+
